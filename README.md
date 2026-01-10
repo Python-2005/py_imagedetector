@@ -6,11 +6,11 @@
 It provides a fast and reliable way to ensure your inventory setup is clean and all items display correctly in the UI.
 
 **Note:**
-
 - This script is intended for debugging purposes only and should be used by developers or server owners with full access to a localhost or Windows server. If you do not meet these requirements or do not intend to use the script, set `Config.Enabled` to false.
-- This script currently only supports **ox_inventory** and requires **ox_lib** for proper resource handling. Make sure these dependencies are installed and running.
+- This requires **ox_lib** for proper resource handling. Make sure this dependency is installed and running.
 - The script reads items from both `items.lua` and `weapons.lua`, including Weapons, Components, and Ammo categories.
-
+- This script currently only supports ox_inventory, but you can add additional inventories if you want. Only do this if you have the knowledge to do so, as no support will be provided. If it works, submit a PR so I can include it for others.
+  
 The script automatically compares:
 
 - All items registered in ox_inventory (including weapons, components, and ammo)
@@ -69,3 +69,4 @@ ensure py_imagedetector
 ```
 
 3. Start your server. The image scan will run automatically on resource start.
+
