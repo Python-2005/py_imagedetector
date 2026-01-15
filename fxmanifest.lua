@@ -5,7 +5,7 @@ lua54 "yes"
 
 name "py_imagedetector"
 author "Python"
-version "1.0.2"
+version "1.0.1"
 
 shared_scripts {
     "@ox_lib/init.lua",
