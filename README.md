@@ -2,18 +2,19 @@
 
 ## Overview
 
-**py_imagedetector** is a server-side FiveM resource that scans **ox_inventory** for missing and unused item images.  
+**py_imagedetector** is a server-side FiveM resource that scans **ox_inventory** or **qb-inventory** for missing and unused item images.  
 It provides a fast and reliable way to ensure your inventory setup is clean and all items display correctly in the UI.
 
 **Note:**
+
 - This script is intended for debugging purposes only and should be used by developers or server owners with full access to a localhost or Windows server. If you do not meet these requirements or do not intend to use the script, set `Config.Enabled` to false.
 - This requires **ox_lib** for proper resource handling. Make sure this dependency is installed and running.
 - The script reads items from both `items.lua` and `weapons.lua`, including Weapons, Components, and Ammo categories.
-- This script currently only supports ox_inventory, but you can add additional inventories if you want. Only do this if you have the knowledge to do so, as no support will be provided. If it works, submit a PR so I can include it for others.
-  
+- This script currently only supports ox_inventory and qb-inventory, but you can add additional inventories if you want. Only do this if you have the knowledge to do so, as no support will be provided. If it works, submit a PR so I can include it for others.
+
 The script automatically compares:
 
-- All items registered in ox_inventory (including weapons, components, and ammo)
+- All items registered (including weapons, components, and ammo)
 - All image files in the inventory image folder
 
 It then reports:
@@ -38,7 +39,7 @@ All results are logged clearly in the server console.
 
 ## How It Works
 
-1. Waits briefly after the resource starts to ensure **ox_inventory** is fully loaded.
+1. Waits briefly after the resource starts to ensure the inventory is fully loaded.
 2. Reads all items via `items.lua` and `weapons.lua` (Weapons, Components, Ammo).
 3. Scans the inventory image folder for `.png` files.
 4. Compares items and images (case-insensitive if `Config.CaseSensitive = false`).
@@ -50,7 +51,7 @@ No client-side code is used.
 
 ## Dependencies
 
-- **ox_inventory**
+- **ox_inventory** or **qb-inventory**
 - **ox_lib** (for proper resource path handling and events)
 
 Ensure both resources are installed and running before using py_imagedetector.
@@ -64,9 +65,8 @@ Ensure both resources are installed and running before using py_imagedetector.
 
 ```cfg
 ensure ox_lib
-ensure ox_inventory
+ensure ox_inventory or qb-inventory
 ensure py_imagedetector
 ```
 
 3. Start your server. The image scan will run automatically on resource start.
-
